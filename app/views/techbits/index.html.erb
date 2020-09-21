@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Techbits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bit</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @techbits.each do |techbit| %>
+      <tr>
+        <td><%= techbit.bit %></td>
+        <td><%= link_to 'Show', techbit %></td>
+        <td><%= link_to 'Edit', edit_techbit_path(techbit) %></td>
+        <td><%= link_to 'Destroy', techbit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Techbit', new_techbit_path %>

@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Techbits</h1>
+<h1 class="bg-primary">Techbits</h1>
 
-<table>
+<table class="bg-primary">
   <thead>
     <tr>
       <th>Bit</th>
@@ -10,13 +10,14 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody >
     <% @techbits.each do |techbit| %>
       <tr>
         <td><%= techbit.bit %></td>
         <td><%= link_to 'Show', techbit %></td>
         <%# <td><%= link_to 'Edit', edit_techbit_path(techbit) %></td> %>
         <td><%= link_to 'Destroy', techbit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Logout', logout_path, method: :post %></td>
       </tr>
     <% end %>
   </tbody>

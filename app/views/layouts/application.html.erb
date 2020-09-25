@@ -15,7 +15,7 @@
   <body>
   <%# <h1>Current User = <%= logged_user.username%></h1>
 
-  <% if flash[:notice] %>
+    <% if flash[:notice] %>
   		<div class="notification is-primary global-notification">
   			<p class="notice"><%= notice %></p>
   		</div>
@@ -26,9 +26,49 @@
   		</div>
   	<% end %>
 
-    
+    <div class= "container-fluid bg-light">
 
+    <div class="row">
+      <div class= "col-2 vh-100 bg-dark">
+      </div>
 
-    <%= yield %>
+      <div class= "col-10 vh-100">
+        <div class="row bg-primary">
+          <div class="col">
+            <span class="material-icons">share</span>
+          </div>
+
+          <div class="d-flex justify-content-end bg-danger">
+
+            <div>
+              <i class="fa fa-users-cog"></i>
+            </div>
+
+            <div>
+              <i class="fa fa-envelope-square"></i>
+            </div>
+
+            <div>
+              <i class="fa fa-envelope-square"></i>
+            </div>
+
+            <div>
+              <i class="fa fa-users-cog"></i>
+            </div>
+
+            <div>
+              <i class="fa fa-users-cog"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <%= yield %>
+          
+        </div>
+        
+      </div>
+    </div>
+    </div>
   </body>
 </html>

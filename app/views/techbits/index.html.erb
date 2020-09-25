@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1 class="bg-primary">Techbits</h1>
+<div>
+  <div class= "col-9">
 
-<table class="bg-primary">
+  <table >
   <thead>
     <tr>
       <th>Bit</th>
@@ -26,3 +27,13 @@
 <br>
 
 <%= link_to 'New Techbit', new_techbit_path %>
+
+  
+  
+  </div>
+  <div class= "col-3"></div>
+</div>
+
+<%= render 'form', techbit: @techbit %>
+
+

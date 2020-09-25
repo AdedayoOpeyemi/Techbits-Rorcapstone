@@ -5,6 +5,7 @@ class TechbitsController < ApplicationController
   # GET /techbits.json
   def index
     @techbits = Techbit.all
+    @techbit = Techbit.new
   end
 
   # GET /techbits/1

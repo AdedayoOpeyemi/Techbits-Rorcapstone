@@ -1,4 +1,6 @@
-<%= form_with(model: techbit, local: true) do |form| %>
+
+
+<%= form_with(model: @techbit, local: true, class:"p-3 bg-white") do |form|%>
   <% if techbit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(techbit.errors.count, "error") %> prohibited this techbit from being saved:</h2>
@@ -11,12 +13,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :bit %>
-    <%= form.text_area :bit %>
+  <div class="field ">
+    <%= form.label(:bit, "Your Techbit:") %>
+    <%= form.text_area :bit, class:"border w-100"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn-primary" %>
   </div>
 <% end %>
+

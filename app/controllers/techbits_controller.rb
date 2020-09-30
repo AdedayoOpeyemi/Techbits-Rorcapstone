@@ -1,4 +1,5 @@
 class TechbitsController < ApplicationController
+  include SessionsHelper
   before_action :set_techbit, only: [:show, :edit, :update, :destroy]
 
   # GET /techbits
@@ -6,6 +7,7 @@ class TechbitsController < ApplicationController
   def index
     @techbits = Techbit.all
     @techbit = Techbit.new
+    @users = User.all
   end
 
   # GET /techbits/1
@@ -15,7 +17,7 @@ class TechbitsController < ApplicationController
 
   # GET /techbits/new
   def new
-    @techbit = Techbit.new
+    @techbit = logged_user.techbits.new
   end
 
   # GET /techbits/1/edit
@@ -25,11 +27,11 @@ class TechbitsController < ApplicationController
   # POST /techbits
   # POST /techbits.json
   def create
-    @techbit = Techbit.new(techbit_params)
+    @techbit = logged_user.techbits.build(techbit_params)
 
     respond_to do |format|
       if @techbit.save
-        format.html { redirect_to @techbit, notice: 'Techbit was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Techbit was successfully created.' }
         format.json { render :show, status: :created, location: @techbit }
       else
         format.html { render :new }

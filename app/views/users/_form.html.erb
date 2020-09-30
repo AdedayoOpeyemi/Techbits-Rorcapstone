@@ -21,7 +21,17 @@
     <%= form.text_field :username %>
   </div>
 
+  <div class="field">
+    <%= form.label :photo %>
+    <%= form.file_field :photo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :coverimage %>
+    <%= form.file_field :coverimage %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"btn-primary"%>
   </div>
 <% end %>

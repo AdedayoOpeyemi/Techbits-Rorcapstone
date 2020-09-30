@@ -14,4 +14,28 @@
  *= require_self
  */
 
- @import "bootstrap/scss/bootstrap"
+ @import "bootstrap/scss/bootstrap";
+
+
+.material-icons {
+     color: white;
+     font-size: 32px !important;
+ }
+
+ a {
+     line-height: 0 !important;
+ }
+
+ .content-type {
+     border-right: 1px grey solid;
+     min-height: 100vh;
+ }
+
+ .grey-bg {
+     background-color: f5f6f8;
+ }
+
+ .profile_thumbnail {
+     width: 64px;
+     height: 64px;
+ }

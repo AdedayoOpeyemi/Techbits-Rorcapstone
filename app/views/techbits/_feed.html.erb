@@ -1,0 +1,24 @@
+<% @techbits.each do | techbit | %>
+  <div class="bg-white mb-3 d-flex p-3">
+  	<%# <article class="media"> %>
+  		
+  		<div>
+          <div class="profile_thumbnail">
+            <%= image_tag(techbit.author.photo, class:"w-100 h-100")  %>
+          </div>
+  			
+  		</div>
+
+          <div class="col-9">
+             <div class="content">
+  				<strong><%= techbit.author.full_name %></strong>
+  				<small>@<%= techbit.author.username %></small><br/>
+  				
+  			</div>
+              <div>
+            <p><%= techbit.bit %></p>
+            </div>
+          </div>
+  	<%# </article> %>
+  </div>
+<% end %>

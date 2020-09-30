@@ -2,7 +2,7 @@ class User < ApplicationRecord
     validates :full_name, presence: true
     validates :username, presence: true, uniqueness: true
 
-    has_many :techbits, foreign_key: :author_id
+    has_many :techbits, foreign_key: :author_id, dependent: :destroy
     has_one_attached :photo
     has_one_attached :coverimage
 

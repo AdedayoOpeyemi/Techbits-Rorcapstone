@@ -25,14 +25,67 @@
   			<p class="alert"><%= alert %></p>
   		</div>
   	<% end %>
-    <%# <% if check %> %>
+    <% if check %>
     <div class= "container-fluid bg-light">
 
     <div class="row">
-      <div class= "col-2 vh-100 bg-dark">
+      <div class= "col-2 vh-100 bg-dark d-flex flex-column pt-3 text-muted position-fixed">
+        <div class="d-flex flex-column ">
+        <div class="d-flex">
+           <div class="profile_thumbnail mr-3">
+            <%= image_tag(logged_user.photo, class:"w-100 h-100")  %>
+          </div>
+
+          <div class="ml-3">
+            <strong><%= logged_user.full_name %></strong>
+          </div>
+          </div>
+
+          <div class="d-flex">
+            <div >
+              <h4> 123</h4>
+              <p>Followers</p>
+            </div>
+
+            <div class="w-50">
+              <h4> 123</h4>
+              <p>Followers</p>
+            </div>
+          
+          </div>
+
+
+        </div>
+
+        <div class="d-flex flex-column ">
+        <div class="col">
+          <i class="fa fa-home"></i> <span>HOME</span>
+          </div>
+
+          <div class="col">
+            <i class="fa fa-at"></i><span>HOME</span>
+          </div>
+          
+          <div class="col">
+           <i class="fa fa-hashtag"></i> <span>HOME</span>
+          </div>
+          
+          <div class="col">
+            <i class="fa fa-user"></i> <span>HOME</span>
+          </div>
+
+           <div class="col">
+            <i class="fa fa-user"></i> <span>HOME</span>
+          </div>
+
+          <div class="col">
+            <i class="fab fa-artstation"></i><span>HOME</span>
+          </div>
+          
+        </div>
       </div>
 
-      <div class= "col-10 vh-100">
+      <div class= "col-10 vh-100 ml-auto">
         <div class="row bg-primary navbar">
 
         <a class="navbar-brand" href="#"> <span class="material-icons">sports_volleyball</span></a>
@@ -52,8 +105,8 @@
       </div>
     </div>
     </div>
-    <%# <% else %> %>
-     <%# <%= yield %>
-     <%# <% end %> %> %>
+     <% else %>
+        <%= yield %>
+      <% end %> 
   </body>
 </html>

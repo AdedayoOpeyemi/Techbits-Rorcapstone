@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+
+
+
+
+    <% suggestion.each do |user| %>
+        <div class="d-flex my-3">
+          <div class="tofollow-image profile_thumbnail mx-3">
+            <%= image_tag(user.photo, class:"w-100 h-100 tofollow-image ")  %>
+          </div>
+
+          <div class="mx-3">
+            <%= link_to user.full_name, user %> <br>
+            <small>@<%= link_to user.username, user %></small>
+            
+          </div>
+
+          <div class="ml-auto mr-3">
+            <span class="material-icons text-dark">add_circle_outline</span>
+          </div>
+        
+        </div>
+    <% end %>
+
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

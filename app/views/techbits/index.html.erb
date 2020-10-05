@@ -12,6 +12,7 @@
   <div class="col-3">
     <div>
       Who to follow
+      <td><%= signed_in_logout(logged_user) %></td>
       </div>
   </div>
 </div>
@@ -31,7 +32,7 @@
 
   <div class= "col-3">
 
-    <%= render "users/suggestions" %>
+    <%= render "users/who_to_follow" %>
   
   </div>
 </div>

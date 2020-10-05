@@ -11,6 +11,8 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @techbit = Techbit.new
+    @techbits = Techbit.all
   end
 
   # GET /users/new

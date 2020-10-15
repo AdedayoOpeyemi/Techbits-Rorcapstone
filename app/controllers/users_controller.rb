@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   include SessionsHelper
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  include TechbitsHelper
+  before_action :set_user, only: %i[show edit update destroy follow unfollow]
 
   # GET /users
   # GET /users.json
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @techbit = Techbit.new
-    @techbits = Techbit.all
+    @techbits = profile_bits(@user)
   end
 
   # GET /users/new
@@ -21,8 +22,7 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /users
   # POST /users.json
@@ -61,14 +61,25 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def follow
+    logged_user.follow(@user)
+    redirect_back fallback_location: root_path
+  end
 
-    # Only allow a list of trusted parameters through.
-    def user_params
-      params.require(:user).permit(:full_name, :username, :photo, :coverimage)
-    end
+  def unfollow
+    logged_user.unfollow(@user)
+    redirect_back fallback_location: root_path
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def user_params
+    params.require(:user).permit(:full_name, :username, :photo, :coverimage)
+  end
 end

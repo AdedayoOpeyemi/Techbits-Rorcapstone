@@ -1,24 +1,19 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row border-bottom">
   <div class= "col-9 border-right grey-bg">
     <div class="d-flex bd-highlight row p-3 border-bottom">
       <div class="p-2 bd-highlight"><a href="#"><h5>TWEETS</h5></a></div>
-      <div class="p-2 bd-highlight"><a href="#"><h5>TWEETS</h5></a></div>
-      <div class="p-2 bd-highlight"><a href="#"><h5>TWEETS</h5></a></div>
     </div>
   </div>
 
-  <div class="col-3">
-    <div>
-      Who to follow
-      <td><%= signed_in_logout(logged_user) %></td>
-      </div>
+  <div class="col-3 d-flex justify-content-center"> 
+
+      <h5 id="side-bar">Who to follow</h5>
+      
   </div>
 </div>
 
-<div class="row">
-  <div class= "col-9 border-right">
+<div class="row ">
+  <div class= "col-9 border-right main-sec">
     <div class="p-3">
       <div class="p-6, bg-light">
         <%= render 'form', techbit: @techbit %>

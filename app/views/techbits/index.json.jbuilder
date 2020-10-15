@@ -1,1 +1,1 @@
-json.array! @techbits, partial: "techbits/techbit", as: :techbit
+json.array! @techbits, partial: 'techbits/techbit', as: :techbit

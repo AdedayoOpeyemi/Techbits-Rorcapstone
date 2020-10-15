@@ -1,19 +1,22 @@
 class TechbitsController < ApplicationController
   include SessionsHelper
-  before_action :set_techbit, only: [:show, :edit, :update, :destroy]
+  include UsersHelper
+  include TechbitsHelper
+  before_action :require_login
+  before_action :set_techbit, only: %i[show edit update destroy]
 
   # GET /techbits
   # GET /techbits.json
   def index
-    @techbits = Techbit.all
+    # @techbits = Techbit.all.order(created_at: :desc)
+    @techbits = home_feed.all.order(created_at: :desc)
     @techbit = Techbit.new
     @users = User.all
   end
 
   # GET /techbits/1
   # GET /techbits/1.json
-  def show
-  end
+  def show; end
 
   # GET /techbits/new
   def new
@@ -21,8 +24,7 @@ class TechbitsController < ApplicationController
   end
 
   # GET /techbits/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /techbits
   # POST /techbits.json
@@ -65,13 +67,14 @@ class TechbitsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_techbit
-      @techbit = Techbit.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def techbit_params
-      params.require(:techbit).permit(:bit)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_techbit
+    @techbit = Techbit.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def techbit_params
+    params.require(:techbit).permit(:bit)
+  end
 end

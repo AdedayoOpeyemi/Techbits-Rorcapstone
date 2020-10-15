@@ -1,1 +1,1 @@
-json.partial! "techbits/techbit", techbit: @techbit
+json.partial! 'techbits/techbit', techbit: @techbit

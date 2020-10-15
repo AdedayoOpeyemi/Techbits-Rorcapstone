@@ -1,12 +1,12 @@
 
-    <% suggestion.each do |user| %>
+    <% followed_by.each do |user| %>
         <div class="d-flex my-3">
           <div class="tofollow-image profile_thumbnail mx-3">
             <%= image_tag(user.photo, class:"w-100 h-100 tofollow-image ")  %>
           </div>
 
           <div class="mx-3">
-            <%= link_to user.full_name.capitalize(), user %> <br>
+            <%= link_to user.full_name, user %> <br>
             <small>@<%= link_to user.username, user %></small>
           </div>
 
@@ -17,7 +17,3 @@
           </div>
         </div>
     <% end %>
-
-
-<br>
-

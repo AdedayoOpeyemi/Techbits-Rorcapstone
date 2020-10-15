@@ -16,15 +16,68 @@
 
  @import "bootstrap/scss/bootstrap";
 
+    @font-face {
+        font-family: 'Roboto';
+        src: url("../fonts/Roboto-Black.ttf") format("truetype");
+        src: url("../fonts/Roboto-BlackItalic.ttf") format("truetype");
+        src: url("../fonts/Roboto-Bold.ttf") format("truetype");
+        src: url("../fonts/Roboto-BoldItalic.ttf") format("truetype");
+        src: url("../fonts/Roboto-Italic.ttf") format("truetype");
+        src: url("../fonts/Roboto-Light.ttf") format("truetype");
+        src: url("../fonts/Roboto-LightItalic.ttf") format("truetype");
+        src: url("../fonts/Roboto-Medium.ttf") format("truetype");
+        src: url("../fonts/Roboto-MediumItalic.ttf") format("truetype");
+        src: url("../fonts/Roboto-Regular.ttf") format("truetype");
+        src: url("../fonts/Roboto-Thin.ttf") format("truetype");
+        src: url("../fonts/Roboto-ThinItalic.ttf") format("truetype");
+      }
+
+   
+
+ body {
+     font-family: acumin-pro, "Acumin Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     color: grey;
+ }
+
+ p {
+     font-size: 20px;
+ }
+ 
+ 
 
 .material-icons {
      color: white;
      font-size: 32px !important;
  }
 
- a {
-     line-height: 0 !important;
+//  a {
+//      line-height: 0 !important;
+//  }
+
+.main-sec {
+    min-height: 100vh
+}
+
+#side-bar {
+    position: absolute;
+    bottom: 0;
+}
+ 
+a {
+    background-color:transparent !important;
+    color: grey;
+    font-family: "Roboto-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif
+}
+a:hover {
+    background-color: none!important;
+  }
+ .navbar {
+     background-color: #53A7E8;
  }
+.side-menu {
+    font-size: 22px;
+  font-weight: bold;
+}
 
  .content-type {
      border-right: 1px grey solid;
@@ -59,4 +112,22 @@
     width: 120px;
     height: 120px;
     border-radius: 50%;
+}
+
+.logged-profile {
+    background-color: #1A2A3D;
+}
+
+.navinfo {
+    background-color: #213346;
+}
+
+.viewed_profile {
+    font-family: "Roboto-Bold";
+}
+
+.logout a{
+    font-family: roboto-bold;
+    font-size: 24px;
+    color: white;
 }

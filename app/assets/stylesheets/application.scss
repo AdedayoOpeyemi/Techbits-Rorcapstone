@@ -34,20 +34,23 @@
 body {
   font-family: acumin-pro, "Acumin Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: grey;
+  min-width:1000px;        /* Suppose you want minimum width of 1000px */
+   width: auto !important;  /* Firefox will set width as auto */
+   width:1000px;
 }
 
 p {
+  font-size: 16px;
+}
+.spec-fig {
   font-size: 20px;
+  font-weight: bold;
 }
  
 .material-icons {
   color: white;
-  font-size: 32px !important;
+  font-size: 2rem !important;
 }
-
-//  a {
-//      line-height: 0 !important;
-//  }
 
 .main-sec {
   min-height: 100vh

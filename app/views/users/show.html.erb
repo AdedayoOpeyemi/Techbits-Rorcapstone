@@ -23,42 +23,45 @@
     </div>
   </div>
 
-  <div class="col-3 visited d-flex flex-column">
-  <div class="d-flex my-3 justify-content-center">
-  <div>
+  <div class="col-3 visited d-flex flex-column justify-content-between">
+  <div class="d-flex justify-content-center pt-3">
+  <div class="py-3 mx-3">
+  <% if @user != logged_user %>
     <% if already_following %> 
         <%= link_to unfollow_user_path(@user),  method: :post, class: "navbar-item" do %>
   			  <span class="material-icons text-dark">remove_circle</span>
   	    <% end %>
+        
     <% else %>
         <%= link_to follow_user_path(@user),  method: :post, class: "navbar-item" do %>
   			  <span class="material-icons text-dark">add_circle_outline</span>
   	    <% end %>
     <% end %>
+    <% end %>
     </div>
 
       <%= image_tag(@user.photo, class:"side-profile")  %>
 
-      <span class="material-icons align-middle">assignment</span>
+      <span class="material-icons align-middle text-dark py-3 mx-3">assignment</span>
   
-  </div class="my-3">
+  </div>
   <div >
     <h6 class="text-center"><%= @user.full_name %></h6>
     <p class="text-center"><%= @user.username %></h3>
   </div>
-  <div class="d-flex mt-auto">
-    <div class="col justify-content-center">
-      <p class="text-center"><%= @user.techbits.count %> </p><br>
+  <div class="d-flex border  mx-n3 ">
+    <div class="col-4 border pt-3">
+      <p class="text-center spec-fig"><%= @user.techbits.count %> </p>
       <p class="text-center">Techbits</p>
     </div>
 
-      <div class="col">
-      <p class="text-center"><%= @user.followeds.count %></p> <br>
+      <div class="col-4 border pt-3">
+      <p class="text-center spec-fig"><%= @user.followeds.count %></p>
       <p class="text-center">Followings</p>
       </div>
 
-      <div class="col">
-      <p class="text-center"><%= @user.followers.count%></p> <br>
+      <div class="col-4 border pt-3">
+      <p class="text-center spec-fig"><%= @user.followers.count%></p>
       <p class="text-center">Followers</p>
       </div>
   </div>
@@ -78,22 +81,22 @@
     </div>
   </div>
 
-  <div class="col-3">
-    <div>
-      <h6>Followed by</h6>
-      <td><%= signed_in_logout(logged_user) %></td>
-      </div>
+  <div class="col-3 d-flex justify-content-center">
+
+
+      <h5 id="side-bar">Followed by</h5>
+
   </div>
 </div>
 
 <div class="row">
   <div class= "col-9 border-right">
     <div class="p-3">
-    <%# <% if @user == logged_user %> %>
+    <% if @user == logged_user %>
       <div class="p-6, bg-light">
         <%= render 'techbits/form', techbit: @techbit %>
       </div>
-      <%# <% end %> %>
+      <% end %>
 
     <div class="pt-3">
       <%= render "techbits/feed" %>

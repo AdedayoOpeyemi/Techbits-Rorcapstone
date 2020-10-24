@@ -35,13 +35,14 @@ body {
   font-family: acumin-pro, "Acumin Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: grey;
   min-width:1000px;        /* Suppose you want minimum width of 1000px */
-   width: auto !important;  /* Firefox will set width as auto */
-   width:1000px;
+  width: auto !important;  /* Firefox will set width as auto */
+  width:1000px;
 }
 
 p {
   font-size: 16px;
 }
+
 .spec-fig {
   font-size: 20px;
   font-weight: bold;
@@ -53,26 +54,26 @@ p {
 }
 
 .main-sec {
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 #side-bar {
   position: absolute;
   bottom: 0;
 }
- 
+
 a {
   background-color:transparent !important;
   color: grey;
-  font-family: "Roboto-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif
+  font-family: "Roboto-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a:hover {
-  background-color: none!important;
+  background-color: none !important;
 }
 
 .navbar {
-  background-color: #53A7E8;
+  background-color: #53a7eb;
 }
 
 .side-menu {
@@ -83,10 +84,10 @@ a:hover {
 .content-type {
   border-right: 1px grey solid;
   min-height: 100vh;
- }
+}
 
 .grey-bg {
-  background-color: f5f6f8;
+  background-color: #f5f6f8;
 }
 
 .profile_thumbnail {
@@ -95,7 +96,7 @@ a:hover {
 }
 
 .tofollow-image {
-  border-radius: 50%
+  border-radius: 50%;
 }
 
 .coverimage {
@@ -104,7 +105,7 @@ a:hover {
 }
 
 .user-show {
-  height: 300px
+  height: 300px;
 }
 
 .side-profile {
@@ -114,7 +115,7 @@ a:hover {
 }
 
 .logged-profile {
-  background-color: #1A2A3D;
+  background-color: #1a2a3d;
 }
 
 .navinfo {
@@ -125,8 +126,8 @@ a:hover {
   font-family: "Roboto-Bold";
 }
 
-.logout a{
-  font-family: roboto-bold;
+.logout a {
+  font-family: roboto-bold; //missing generic font-family
   font-size: 24px;
   color: white;
 }

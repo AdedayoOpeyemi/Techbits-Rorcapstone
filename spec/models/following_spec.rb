@@ -4,18 +4,14 @@ RSpec.describe Following, type: :model do
   before :each do
     @first_user = User.new(full_name: 'First User', username: 'First')
     @second_user = User.new(full_name: 'Second User', username: 'Second')
-    # file = fixture_file_upload(Rails.root.join('public', 'apple-touch-icon.png'), 'image/png')
-    File.open(File.expand_path('spec/test_image.jpg')) do |tstmage|
-      @first_user.coverimage.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
-      @first_user.photo.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
-      @second_user.coverimage.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
-      @second_user.photo.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
-    end
+    @first_user.coverimage.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
+    @first_user.photo.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
+    @second_user.coverimage.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
+    @second_user.photo.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
+
     @first_user.save
     @second_user.save
   end
-
- 
 
   it 'creates a valid following' do
     following = Following.new(follower_id: @first_user.id, followed_id: @second_user.id)
@@ -39,4 +35,3 @@ RSpec.describe Following, type: :model do
     end
   end
 end
-

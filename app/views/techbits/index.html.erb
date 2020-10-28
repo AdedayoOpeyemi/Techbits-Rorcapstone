@@ -17,6 +17,18 @@
     <div class="p-3">
       <div class="p-6, bg-light">
         <%= render 'form', techbit: @techbit %>
+
+        <% if flash[:notice] %>
+  		<div class="notification is-primary global-notification">
+  			<p class="notice"><%= notice %></p>
+  		</div>
+  	<% end %>
+  	<% if flash[:alert] %>
+  		<div class="notification is-danger global-notification">
+  			<p class="alert"><%= alert %></p>
+  		</div>
+      <% end %>
+
       </div>
 
     <div class="pt-3">

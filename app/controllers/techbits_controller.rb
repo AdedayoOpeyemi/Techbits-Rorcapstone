@@ -11,7 +11,7 @@ class TechbitsController < ApplicationController
     # @techbits = Techbit.all.order(created_at: :desc)
     @techbits = home_feed.all.order(created_at: :desc)
     @techbit = Techbit.new
-    @users = User.all
+    @users = User.all.order(created_at: :desc)
   end
 
   # GET /techbits/1
@@ -36,7 +36,8 @@ class TechbitsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Techbit was successfully created.' }
         format.json { render :show, status: :created, location: @techbit }
       else
-        format.html { render :new }
+        # format.html { render :new }
+        format.html { redirect_to root_path, notice: 'Check that you have a valid input!' }
         format.json { render json: @techbit.errors, status: :unprocessable_entity }
       end
     end
@@ -67,7 +68,6 @@ class TechbitsController < ApplicationController
   end
 
   private
-
   # Use callbacks to share common setup or constraints between actions.
   def set_techbit
     @techbit = Techbit.find(params[:id])

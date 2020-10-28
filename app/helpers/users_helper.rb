@@ -8,29 +8,17 @@ module UsersHelper
   end
 
   def suggestion
-    # logged_user.follower
-    # Users.where()
-    # followings.where(followed_id: user.id).exists?
-    # Users.where(user_id logged_user.followed)
-
-    # User.all - logged_user.followeds - [logged_user]
-    # User.where("user.id != ?", logged_user.followeds)
-    # User.where('id NOT IN (?)', logged_user.followeds)
-    User.where.not(id: logged_user.followeds) - [logged_user]
+    no_suggest = logged_user.followeds + [logged_user]
+    User.where.not(id: no_suggest).order(created_at: :desc).limit(5)
   end
 
   def followed_by
-    # @user.followers.where(logged_user.followeds.exist?(follower_id))
-    # User.where(@user.followeds.exists?(@user.id))
-    # User.where(followeds.exist?(@user.id) AND followers.exist?(logged_user.id) )
-
-    # @user.followers - logged_user.followeds - [logged_user]
-    # User.all
-    @user.followers - logged_user.followeds
-  end
-
-  def recommended
-    recommend = User.all - logged_user.followeds
+    if @user == logged_user
+      User.where(id: logged_user.followers).order(created_at: :desc).limit(5)
+    else
+      suggest = @user.followers - logged_user.followeds
+      User.where(id: suggest).order(created_at: :desc).limit(5)
+    end
   end
 
   def feed_home

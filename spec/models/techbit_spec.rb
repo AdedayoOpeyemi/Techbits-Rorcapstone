@@ -6,13 +6,12 @@ RSpec.describe Techbit, type: :model do
     # let(:test_user) { User.new(full_name: 'Test User', username: 'testuser') }
 
     it 'is valid with valid attributes' do
-      test_user = User.new(full_name: 'Test User', username: 'testuser')
-      test_user.coverimage.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
-      test_user.photo.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
-      test_user.save
+      user = User.new(full_name: 'Test User', username: 'testuser')
+      user.coverimage.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
+      user.photo.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
+      user.save
       subject.bit = 'Test Techbit'
-      
-      subject.author = test_user
+      subject.author = user
       expect(subject).to be_valid
     end
 

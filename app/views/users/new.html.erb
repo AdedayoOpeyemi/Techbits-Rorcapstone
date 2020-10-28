@@ -1,6 +1,4 @@
 
-
-
 <div class="container-fluid vh-100">
   <div class="row h-100">
     <div class="col-sm bg-primary h-100">
@@ -12,6 +10,18 @@
       <%= render 'form', user: @user %>
 
       <%= link_to 'Login', login_path %>
+      <% if flash[:notice] %>
+  		<div class="notification is-primary global-notification">
+  			<p class="notice"><%= notice %></p>
+  		</div>
+  	<% end %>
+  	<% if flash[:alert] %>
+  		<div class="notification is-danger global-notification">
+  			<p class="alert"><%= alert %></p>
+  		</div>
+  	<% end %>
     </div>
+    
   </div>
+
 </div>

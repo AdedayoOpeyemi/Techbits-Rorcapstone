@@ -34,9 +34,9 @@
 body {
   font-family: acumin-pro, "Acumin Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: grey;
-  min-width:1000px;        /* Suppose you want minimum width of 1000px */
+//   min-width: 1000px;        /* Suppose you want minimum width of 1000px */
   width: auto !important;  /* Firefox will set width as auto */
-  width:1000px;
+//   width: 1000px;
 }
 
 p {
@@ -47,7 +47,7 @@ p {
   font-size: 20px;
   font-weight: bold;
 }
- 
+
 .material-icons {
   color: white;
   font-size: 2rem !important;
@@ -63,13 +63,13 @@ p {
 }
 
 a {
-  background-color:transparent !important;
+  background-color: transparent !important;
   color: grey;
   font-family: "Roboto-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 a:hover {
-  background-color: none !important;
+  background-color: transparent !important;
 }
 
 .navbar {
@@ -92,7 +92,7 @@ a:hover {
 
 .profile_thumbnail {
   width: 64px;
-  height: 64px;   
+  height: 64px;
 }
 
 .tofollow-image {

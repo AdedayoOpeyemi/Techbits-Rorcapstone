@@ -1,17 +1,14 @@
 require_relative '../rails_helper'
-
 RSpec.feature 'User Login', type: :feature do
   scenario 'Log in and log out' do
     user1 = User.new(full_name: 'User One', username: 'userone')
-    user1.coverimage.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
-    user1.photo.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
+    user1.coverimage.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
+    user1.photo.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
     user1.save
-
     user2 = User.new(full_name: 'User Two', username: 'usertwo')
-    user2.coverimage.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
-    user2.photo.attach(io: File.open('spec/test_image.jpg'), filename: 'test_image.png', content_type: 'image/png')
+    user2.coverimage.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
+    user2.photo.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
     user2.save
-
     visit login_path
     have_link 'Login', href: login_path
     have_link 'Signup', href: signup_path

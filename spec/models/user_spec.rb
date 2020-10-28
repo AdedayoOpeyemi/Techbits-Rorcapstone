@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
 
     it 'validates attributes - valid' do
       user = User.new(full_name: 'Test User', username: 'testuser')
-      File.open(File.expand_path('spec/test_image.jpg')) do |tstmage|
+      File.open(File.expand_path('spec/image.jpg')) do |tstmage|
         user.coverimage = tstmage
         user.photo = tstmage
       end

@@ -14,80 +14,65 @@
 
   <body>
     <% if check %>
-    <div class= "container-fluid bg-light">
-
-    <div class="row">
-      <div class= "col-2 vh-100 d-flex p-0 flex-column text-muted position-fixed navinfo">
-        <div class="d-flex flex-column p-3 logged-profile">
-        <div class="d-flex pb-3 ">
-           <div class="profile_thumbnail mr-3">
-            <%= image_tag(logged_user.photo, class:"w-100 h-100")  %>
-          </div>
-
-          <div class="ml-3">
-            <strong><%= logged_user.full_name.upcase! %></strong>
-          </div>
-        </div>
-
-         <div class="d-flex row pt-3">
-            <div class="col text-center">
-              <h4> <%= logged_user.followers.count %></h4>
-              <p>Followers</p>
+      <div class= "container-fluid bg-light">
+        <div class="row">
+          <div class= "col-2 vh-100 d-flex p-0 flex-column text-muted position-fixed navinfo">
+            <div class="d-flex flex-column p-3 logged-profile">
+              <div class="d-flex pb-3 ">
+                <div class="profile_thumbnail mr-3">
+                  <%= image_tag(logged_user.photo, class:"w-100 h-100")  %>
+                </div>
+                <div class="ml-3">
+                  <strong><%= logged_user.full_name.upcase! %></strong>
+                </div>
+              </div>
+              <div class="d-flex row pt-3">
+                <div class="col text-center">
+                  <h4> <%= logged_user.followers.count %></h4>
+                  <p>Followers</p>
+                </div>
+              <div class="col text-center">
+                <h4> <%= logged_user.followeds.count %></h4>
+                <p>Followers</p>
+              </div>
             </div>
-
-            <div class="col text-center">
-              <h4> <%= logged_user.followeds.count %></h4>
-              <p>Followers</p>
-            </div>
-          
           </div>
 
-
-        </div>
-
-        <div class="d-flex flex-column side-menu">
-        <div class="col my-3">
-        <%= link_to root_path, class: "navbar-item text-decoration-none" do %>
-  			    <i class="fa fa-home"></i><span class="ml-3">HOME</span>
-  	    	<% end %>
+          <div class="d-flex flex-column side-menu">
+            <div class="col my-3">
+              <%= link_to root_path, class: "navbar-item text-decoration-none" do %>
+  			      <i class="fa fa-home"></i><span class="ml-3">HOME</span>
+  	    	  <% end %>
           </div>
-        <div class="col my-3">
-          <%= link_to user_path(logged_user), class: "navbar-item text-decoration-none" do %>
-  			    <i class="fa fa-user"></i><span class="ml-3">PROFILE</span>
-  	    	<% end %>
+          <div class="col my-3">
+            <%= link_to user_path(logged_user), class: "navbar-item text-decoration-none" do %>
+  			      <i class="fa fa-user"></i><span class="ml-3">PROFILE</span>
+  	    	  <% end %>
           </div>
 
           <div class="col my-3">
             <%= link_to user_path(logged_user), class: "navbar-item text-decoration-none" do %>
   			      <i class="fa fa-at"></i><span class="ml-3">CONNECT</span>
-  	    	<% end %>
+  	    	  <% end %>
           </div>
-          
         </div>
       </div>
 
       <div class= "col-10 vh-100 ml-auto">
         <div class="row navbar p-3">
-
-            <%= link_to root_path do %>
-              <span class="material-icons">sports_volleyball</span>
-            <% end %>
-
-        
-          
-          <div class="d-flex justify-content-end">
-           <p class="logout"> <%= signed_in_logout(logged_user) %></p>
-           
-          </div>
+          <%= link_to root_path do %>
+            <span class="material-icons">sports_volleyball</span>
+          <% end %>
+        <div class="d-flex justify-content-end">
+          <p class="logout"> <%= signed_in_logout(logged_user) %></p>
         </div>
-
-        <div class="bg-light">
-          <%= yield  %>
-        </div>
-        
       </div>
+      <div class="bg-light">
+        <%= yield  %>
+      </div> 
     </div>
-    </div>
+  </div>
+</div>
      <% else %>
         <%= yield %>
       <% end %> 

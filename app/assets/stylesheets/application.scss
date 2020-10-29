@@ -32,11 +32,9 @@
 }
 
 body {
-  font-family: acumin-pro, "Acumin Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Acumin Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: grey;
-//   min-width: 1000px;        /* Suppose you want minimum width of 1000px */
   width: auto !important;  /* Firefox will set width as auto */
-//   width: 1000px;
 }
 
 p {
@@ -123,11 +121,11 @@ a:hover {
 }
 
 .viewed_profile {
-  font-family: "Roboto-Bold";
+  font-family: "Roboto-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .logout a {
-  font-family: roboto-bold; //missing generic font-family
+  font-family: "Roboto-Bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 24px;
   color: white;
 }

@@ -3,18 +3,16 @@ require 'rails_helper'
 # require_relative '../rails_helper'
 
 RSpec.describe User, type: :model do
-  context 'User validation tests' do
+  context 'validation tests' do
     it 'validates attributes if present- invalid' do
-      user = User.new(full_name: '', username: '', photo: '', coverimage: '')
+      user = User.new(full_name: '', username: '')
       expect(user.valid?).to be(false)
     end
 
     it 'validates attributes - valid' do
       user = User.new(full_name: 'Test User', username: 'testuser')
-      File.open(File.expand_path('spec/image.jpg')) do |tstmage|
-        user.coverimage = tstmage
-        user.photo = tstmage
-      end
+      user.photo.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
+      user.coverimage.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
       expect(user.valid?).to be(true)
     end
   end

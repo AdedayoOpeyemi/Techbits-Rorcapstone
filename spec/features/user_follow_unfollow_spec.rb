@@ -1,7 +1,7 @@
 require_relative '../rails_helper'
 
-RSpec.feature 'User Login', type: :feature do
-  scenario 'User follow and unfollow' do
+RSpec.feature 'Follow and Unfollow', type: :feature do
+  scenario 'user follow and unfollow' do
     user1 = User.new(full_name: 'User One', username: 'userone')
     user1.coverimage.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
     user1.photo.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
@@ -11,19 +11,11 @@ RSpec.feature 'User Login', type: :feature do
     user2.photo.attach(io: File.open('spec/image.jpg'), filename: 'image.jpg', content_type: 'image/jpg')
     user2.save
     visit login_path
-    have_link 'Login', href: login_path
-    have_link 'Signup', href: signup_path
-    click_link 'Signup'
-    expect(page.current_path).to eq signup_path
-    have_link 'Login', href: login_path
-    click_link 'Login'
     expect(page.current_path).to eq login_path
     page.fill_in 'username', with: 'userone'
     click_button 'Login'
     expect(page.current_path).to eq root_path
     have_link 'Home', href: root_path
-    have_link 'Profile', href: user_path(user1.id)
-    have_link 'Logout', href: logout_path
     have_link 'User two', href: user_path(user2.id)
     click_link 'User two', href: user_path(user2.id)
     expect(page.current_path).to eq user_path(user2.id)

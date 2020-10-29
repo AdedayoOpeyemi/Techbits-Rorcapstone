@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @techbit = Techbit.new
-    @techbits = profile_bits(@user)
+    @techbits = Techbit.where(author_id: @user.id).order(created_at: :desc)
+    # @techbits = profile_bits(@user)
   end
 
   # GET /users/new

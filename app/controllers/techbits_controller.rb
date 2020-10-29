@@ -8,10 +8,17 @@ class TechbitsController < ApplicationController
   # GET /techbits
   # GET /techbits.json
   def index
-    # @techbits = Techbit.all.order(created_at: :desc)
-    @techbits = home_feed.all.order(created_at: :desc)
+    @techbits = Techbit.where('author_id in (?)', (
+      logged_user.followed_ids + [logged_user.id]
+    ).uniq)
+      .includes(:author)
+      .order(created_at: :desc)
     @techbit = Techbit.new
-    @users = User.all.order(created_at: :desc)
+    @users = User.where.not('user_id in (?)', (
+      logged_user.followed_ids + [logged_user.id]
+    ))
+      .includes(:author)
+      .order(created_at: :desc).limit(5)
   end
 
   # GET /techbits/1

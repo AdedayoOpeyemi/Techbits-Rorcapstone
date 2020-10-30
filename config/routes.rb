@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   get '/signup', to: 'users#new'
 
   resources :users, except: [:index]
-  resources :techbits, except: %i[destroy edit update]
+  resources :techbits, except: %i[]
 end

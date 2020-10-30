@@ -55,7 +55,7 @@ class TechbitsController < ApplicationController
   def update
     respond_to do |format|
       if @techbit.update(techbit_params)
-        format.html { redirect_to @techbit, notice: 'Techbit was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Techbit was successfully updated.' }
         format.json { render :show, status: :ok, location: @techbit }
       else
         format.html { render :edit }
@@ -69,13 +69,13 @@ class TechbitsController < ApplicationController
   def destroy
     @techbit.destroy
     respond_to do |format|
-      format.html { redirect_to techbits_url, notice: 'Techbit was successfully destroyed.' }
+      format.html { redirect_to root_path, notice: 'Techbit was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-  
+
   # Use callbacks to share common setup or constraints between actions.
   def set_techbit
     @techbit = Techbit.find(params[:id])

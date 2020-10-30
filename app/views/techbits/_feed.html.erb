@@ -5,29 +5,28 @@
 
 <% @techbits.each do | techbit | %>
   <div class="bg-white mb-3 d-flex p-3">
-  	<%# <article class="media"> %>
-  		
-  		<div>
-          <div class="profile_thumbnail">
-            <%= image_tag(techbit.author.photo, class:"w-100 h-100")  %>
-          </div>
-  			
-  		</div>
+    <div class="">
+      <div class="profile_thumbnail">
+        <%= image_tag(techbit.author.photo, class:"w-100 h-100")  %>
+      </div>
+    </div>
 
-          <div class="w-100 ml-3">
-             <div class="content d-flex">
-          
-             <strong class="mr-3 text-decoration-none "><%= link_to techbit.author.full_name, techbit.author %></strong>
-             <%= link_to "@" + techbit.author.username, techbit.author %>
-
-             <small class='ml-auto mr-0 text-decoration-none'><%= distance_of_time_in_words_to_now(techbit.created_at) %></small>
-
-  				</div>
-              <div>
-            <p><%= techbit.bit %></p>
-            <% %>
-            </div>
-          </div>
-  	<%# </article> %>
+    <div class="w-100 ml-3">
+      <div class="content d-flex ">
+        <strong class="mr-3 text-decoration-none "><%= link_to techbit.author.full_name, techbit.author %></strong>
+        <%= link_to "@" + techbit.author.username, techbit.author %>
+        <small class='ml-auto mr-0 text-decoration-none'><%= distance_of_time_in_words_to_now(techbit.created_at) %></small>
+      </div>
+      <div class= "">
+        <p><%= techbit.bit %></p>
+      </div>
+      <% if check && techbit.author == logged_user %>
+  			<div class="level-left is-mobile">
+  				<%= link_to techbit, method: :delete, data: { confirm: "Are you sure you want to delete this bit?" } do %>
+  					<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+  				<% end %>
+  			</div>
+      <% end %>
+    </div>
   </div>
 <% end %>

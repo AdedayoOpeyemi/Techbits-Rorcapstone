@@ -3,7 +3,7 @@
 <%= form_with(model: @techbit, local: true, class:"p-3 bg-white") do |form|%>
   <% if techbit.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(techbit.errors.count, "error") %> prohibited this techbit from being saved:</h2>
+      <h2><%= pluralize(techbit.errors.count, "error") %> prohibited this Bit from being saved:</h2>
 
       <ul>
         <% techbit.errors.full_messages.each do |message| %>

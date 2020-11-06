@@ -1,21 +1,3 @@
-
-<%# <div class="d-flex flex-column">
-<p>
-  <strong>Full name:</strong>
-  <%= @user.full_name %>
-<%# </p> %>
-
-<%# <p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-<%# </p> %> 
-
-<%# <%= link_to 'Edit', edit_user_path(@user) %> 
-<%# <%= link_to 'Back', users_path %> 
-
-
-<%# <p id="notice"><%= notice</p> %>
-
 <div class="row user-show border-bottom">
   <div class="col-9 p-0">
     <div class="coverimage p-0">
@@ -24,54 +6,35 @@
   </div>
 
   <div class="col-3 visited d-flex flex-column justify-content-between">
-  <div class="d-flex justify-content-center pt-3">
-  <div class="py-3 mx-3">
-  <% if @user != logged_user %>
-    <% if already_following %> 
-        <%= link_to unfollow_user_path(@user),  method: :post, class: "navbar-item" do %>
-  			  <span class="material-icons text-dark">remove_circle</span>
-  	    <% end %>
-        
-    <% else %>
-        <%= link_to follow_user_path(@user),  method: :post, class: "navbar-item" do %>
-  			  <span class="material-icons text-dark">add_circle_outline</span>
-  	    <% end %>
-    <% end %>
-    <% end %>
-    </div>
+    <div class="d-flex justify-content-center pt-3">
+      <div class="py-3 mx-3">
+        <%= follow_option(@user) %>
+      </div>
 
       <%= image_tag(@user.photo, class:"side-profile")  %>
-
       <span class="material-icons align-middle text-dark py-3 mx-3">assignment</span>
-  
-  </div>
-  <div >
-    <h6 class="text-center"><%= @user.full_name %></h6>
-    <p class="text-center"><%= @user.username %></h3>
-  </div>
-  <div class="d-flex border  mx-n3 ">
-    <div class="col-4 border pt-3">
-      <p class="text-center spec-fig"><%= @user.techbits.count %> </p>
-      <p class="text-center">Techbits</p>
     </div>
-
+    <div >
+      <h6 class="text-center"><%= @user.full_name %></h6>
+      <p class="text-center"><%= @user.username %></h3>
+    </div>
+    <div class="d-flex border  mx-n3 ">
       <div class="col-4 border pt-3">
-      <p class="text-center spec-fig"><%= @user.followeds.count %></p>
-      <p class="text-center">Followings</p>
+        <p class="text-center spec-fig"><%= @user.techbits.count %> </p>
+        <p class="text-center">Techbits</p>
       </div>
 
       <div class="col-4 border pt-3">
-      <p class="text-center spec-fig"><%= @user.followers.count%></p>
-      <p class="text-center">Followers</p>
+        <p class="text-center spec-fig"><%= @user.followeds.count %></p>
+        <p class="text-center">Followings</p>
       </div>
-  </div>
-     
-     <%# <div class="tofollow-image profile_thumbnail mx-3"> %>
-     
-    <%# </div> %>
-    
-  </div>
 
+      <div class="col-4 border pt-3">
+        <p class="text-center spec-fig"><%= @user.followers.count%></p>
+        <p class="text-center">Followers</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="row border-bottom">
@@ -82,33 +45,24 @@
   </div>
 
   <div class="col-3 d-flex justify-content-center">
-
-
-      <h5 id="side-bar">Followed by</h5>
-
+    <h5 id="side-bar">Followed by</h5>
   </div>
 </div>
 
 <div class="row">
   <div class= "col-9 border-right">
     <div class="p-3">
-    <% if @user == logged_user %>
       <div class="p-6, bg-light">
-        <%= render 'techbits/form', techbit: @techbit %>
+        <%= bit_form(@user) %>
       </div>
-      <% end %>
-
-    <div class="pt-3">
-      <%= render "techbits/feed" %>
+     
+      <div class="pt-3">
+        <%= render "techbits/feed" %>
+      </div>
     </div>
-  </div>
   </div>
 
   <div class= "col-3">
-
     <%= render "users/followed_by" %>
-  
   </div>
 </div>
-</div>
-

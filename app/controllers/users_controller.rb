@@ -14,12 +14,12 @@ class UsersController < ApplicationController
   def show
     @techbit = Techbit.new
     @techbits = Techbit.where(author_id: @user.id).order(created_at: :desc)
-    # @techbits = profile_bits(@user)
   end
 
   # GET /users/new
   def new
     @user = User.new
+    render layout: 'authenticate'
   end
 
   # GET /users/1/edit

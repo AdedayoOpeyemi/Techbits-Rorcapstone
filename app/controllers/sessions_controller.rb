@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   include SessionsHelper
+  layout 'authenticate'
 
   before_action :require_logout, only: %w[new create]
 

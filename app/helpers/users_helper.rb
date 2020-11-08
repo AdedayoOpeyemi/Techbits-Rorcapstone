@@ -31,15 +31,15 @@ module UsersHelper
 
   def bit_form(user)
     return if user != logged_user
-      
+
     render 'techbits/form', techbit: @techbit
   end
 
   def awesome(techbit)
     return if techbit.author != logged_user
 
-  	link_to techbit, method: :delete, data: { confirm: "Are you sure you want to delete this bit?" } do
-  	  ('<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>').html_safe
+    link_to techbit, method: :delete, data: { confirm: 'Are you sure you want to delete this bit?' } do
+      '<span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>'.html_safe
     end
   end
 
@@ -47,27 +47,25 @@ module UsersHelper
     return if user == logged_user
 
     if already_following
-      link_to unfollow_user_path(user),  method: :post, class: "navbar-item" do
-        ('<span class="material-icons text-dark">remove_circle</span>').html_safe
+      link_to unfollow_user_path(user), method: :post, class: 'navbar-item' do
+        '<span class="material-icons text-dark">remove_circle</span>'.html_safe
       end
     else
-      link_to follow_user_path(user),  method: :post, class: "navbar-item" do
-        ('<span class="material-icons text-dark">add_circle_outline</span>').html_safe
+      link_to follow_user_path(user), method: :post, class: 'navbar-item' do
+        '<span class="material-icons text-dark">add_circle_outline</span>'.html_safe
       end
     end
   end
 
   def notice_list(notice)
-    if flash[notice]
-  		('<div><p class="notice">"<%= notice %>"</p></div>').html_safe
-    end
+    '<div><p class="notice">"<%= notice %>"</p></div>'.html_safe if flash[notice]
   end
 
   def alert_list(alert)
-    if flash[alert]
-  		('div class="">
-  			<p class="alert">"<%= alert %>"</p>
-  		</div>').html_safe
-    end
+    return unless flash[alert]
+
+    'div class="">
+      <p class="alert">"<%= alert %>"</p>
+    </div>'.html_safe
   end
 end

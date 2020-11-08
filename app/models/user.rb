@@ -35,12 +35,4 @@ class User < ApplicationRecord
   def followings_ids
     followings.select('followed_id').pluck('followed_id').to_a
   end
-
-  private
-
-  def destroy_relations
-    followers.destroy_all
-    followings.destroy_all
-    opinions.destroy_all
-  end
 end

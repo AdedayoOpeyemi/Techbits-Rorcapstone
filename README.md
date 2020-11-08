@@ -42,6 +42,7 @@ Clone the repository to your machine and cd into the directory
 ```
 $ git clone https://github.com/adedayoopeyemi/techbit.git
 $ cd techbit
+$ bundle install
 $ rails db:migrate
 ```
 

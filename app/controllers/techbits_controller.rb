@@ -8,11 +8,7 @@ class TechbitsController < ApplicationController
   # GET /techbits
   # GET /techbits.json
   def index
-    @techbits = Techbit.where('author_id in (?)', (
-      logged_user.followed_ids + [logged_user.id]
-    ).uniq)
-      .includes(:author)
-      .order(created_at: :desc)
+    @techbits = Techbit.all
     @techbit = Techbit.new
     @users = User.where.not('user_id in (?)', (
       logged_user.followed_ids + [logged_user.id]

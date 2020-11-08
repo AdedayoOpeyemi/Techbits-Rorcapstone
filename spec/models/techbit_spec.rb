@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe Techbit, type: :model do
   context 'Validation tests' do
     subject { Techbit.new }
-    # let(:test_user) { User.new(full_name: 'Test User', username: 'testuser') }
 
     it 'is valid with valid attributes' do
       user = User.new(full_name: 'Test User', username: 'testuser')

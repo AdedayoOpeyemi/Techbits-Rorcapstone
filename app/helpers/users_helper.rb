@@ -57,15 +57,11 @@ module UsersHelper
     end
   end
 
-  def notice_list(notice)
-    '<div><p class="notice">"<%= notice %>"</p></div>'.html_safe if flash[notice]
-  end
-
-  def alert_list(alert)
-    return unless flash[alert]
-
-    'div class="">
-      <p class="alert">"<%= alert %>"</p>
-    </div>'.html_safe
+  def flash_message
+    html = ''
+    flash.each do |key, msg|
+      html << (content_tag :div, msg, id: key, class: 'flash')
+    end
+    html.html_safe
   end
 end

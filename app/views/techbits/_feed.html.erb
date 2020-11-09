@@ -1,0 +1,28 @@
+<div class="p-3 align-bottom">
+  <p class="sect-head">Latest Techbits</p>
+  <hr>
+</div>
+
+<% @techbits.each do | techbit | %>
+  <div class="bg-white mb-3 d-flex p-3">
+    <div class="">
+      <div class="profile_thumbnail">
+        <%= image_tag(techbit.author.photo, class:"w-100 h-100")  %>
+      </div>
+    </div>
+
+    <div class="w-100 ml-3">
+      <div class="content d-flex ">
+        <strong class="mr-3 text-decoration-none "><%= link_to techbit.author.full_name, techbit.author %></strong>
+        <%= link_to "@" + techbit.author.username, techbit.author %>
+        <small class='ml-auto mr-0 text-decoration-none'><%= distance_of_time_in_words_to_now(techbit.created_at) %></small>
+      </div>
+      <div class= "">
+        <p><%= techbit.bit %></p>
+      </div>
+  		<div class="level-left is-mobile">
+        <%= awesome(techbit) %>
+  		</div>
+    </div>
+  </div>
+<% end %>

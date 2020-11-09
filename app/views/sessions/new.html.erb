@@ -1,0 +1,13 @@
+<div class="container-fluid vh-100">
+  <div class="row h-100">
+    <div class="col-sm bg-primary h-100">
+      Techbits
+    </div>
+    <div class="col-sm h-100">
+      <p>Sign In </p>
+      <%= render 'form', user: @user %>
+      <%= link_to 'Signup', signup_path %>
+      <%= flash_message %>
+    </div>
+  </div>
+</div>

@@ -14,7 +14,7 @@ The project consists of creating an MVP ready application with functions similar
 - They must upload the images while signing up.
 - The app is an MVP of the full product - with the full graphical design, but only basic features that can be extended in the future.
 
-The Live Version - [Techbit](https://fast-lake-35378.herokuapp.com)
+:web The Live Version - [Techbit](https://fast-lake-35378.herokuapp.com)
 
 Design: [Twitter Redesign](https://www.behance.net/gallery/14286087/Twitter-Redesign-of-UI-details), by [Gregoire Vella](https://www.behance.net/gregoirevella)
 
